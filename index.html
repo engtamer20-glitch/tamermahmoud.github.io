@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tamer Mahmoud — IT & Network Specialist</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0f1724;            /* deep navy */
+      --card: #0f1724;
+      --panel: #0b1220;         /* slightly darker */
+      --muted: #9aa6bd;
+      --accent: #5dd1c5;        /* teal mint */
+      --accent-2: #6b8cff;      /* soft blue */
+      --glass: rgba(255,255,255,0.04);
+      --radius: 14px;
+      --maxw: 1000px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:
+        radial-gradient(800px 400px at 10% 10%, rgba(107,140,255,0.06), transparent 6%),
+        radial-gradient(700px 350px at 95% 90%, rgba(93,209,197,0.04), transparent 6%),
+        linear-gradient(180deg,#071020 0%, #05101a 100%);
+      color: #dbe7ff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--maxw);
+      display:grid;
+      grid-template-columns: 340px 1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    /* Left panel */
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .profile-photo{
+      width:120px;
+      height:120px;
+      border-radius:18px;
+      overflow:hidden;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:18px;
+      border: 3px solid rgba(255,255,255,0.06);
+    }
+    .profile-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    h1{
+      margin:0;
+      font-weight:800;
+      font-size:20px;
+      letter-spacing:0.2px;
+    }
+    .role{
+      color:var(--muted);
+      margin-top:6px;
+      font-size:13px;
+    }
+
+    .contact{
+      margin-top:16px;
+      font-size:14px;
+      line-height:1.6;
+      color: #cfe6ff;
+    }
+    .contact a{ color:var(--accent-2); text-decoration:none; font-weight:600 }
+
+    .chip{
+      display:inline-flex;
+      gap:8px;
+      background:var(--glass);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:13px;
+      margin-right:8px;
+      margin-top:12px;
+    }
+
+    .skills{
+      margin-top:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .skill {
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+      padding:8px 10px;
+      border-radius:10px;
+      font-weight:600;
+      color:#d6e9ff;
+      font-size:13px;
+    }
+
+    .download-cv{
+      display:block;
+      margin-top:20px;
+      text-decoration:none;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#042033;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:700;
+      text-align:center;
+      box-shadow:0 6px 18px rgba(92,131,255,0.12);
+    }
+
+    /* Right panel */
+    .main {
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:20px;
+      border-radius:var(--radius);
+      box-shadow:0 10px 40px rgba(2,6,23,0.55);
+    }
+    .about h2, .experience h2, .education h2, .contact-me h2{
+      margin:0 0 10px 0;
+      font-size:16px;
+      letter-spacing:0.2px;
+    }
+    p.lead{
+      color: #bcd6ff;
+      margin:0 0 12px 0;
+    }
+
+    /* Experience timeline */
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .job{
+      display:grid;
+      grid-template-columns: 1fr 110px;
+      gap:12px;
+      align-items:start;
+      padding:12px;
+      border-radius:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .job .title{
+      font-weight:700;
+      margin-bottom:6px;
+    }
+    .job .company{
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:8px;
+    }
+    .job .duties{
+      color:#cfe6ff;
+      font-size:13px;
+      line-height:1.5;
+    }
+    .job .date{
+      text-align:right;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Education & languages */
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .lang-list{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .lang{
+      background:rgba(255,255,255,0.02);
+      padding:6px 8px;
+      border-radius:8px;
+      font-weight:600;
+      color:#e6f3ff;
+      font-size:13px;
+    }
+
+    /* Contact form (simple) */
+    form.contact-form{
+      display:grid;
+      gap:10px;
+    }
+    .input, textarea{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      padding:10px 12px;
+      border-radius:10px;
+      color: #e6f3ff;
+      outline:none;
+    }
+    .btn{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      border-radius:10px;
+      padding:10px 14px;
+      font-weight:700;
+      color:#042033;
+      border:none;
+      cursor:pointer;
+    }
+
+    footer{
+      margin-top:18px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Responsive */
+    @media (max-width:980px){
+      .container{ grid-template-columns: 1fr; padding-bottom:30px }
+      .profile-photo{ width:110px; height:110px }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+
+    <!-- LEFT -->
+    <aside class="card" aria-label="Profile card">
+      <div style="display:flex;gap:14px;align-items:center">
+        <div class="profile-photo" aria-hidden="true">
+          <!-- Replace the image src below with your actual photo path, e.g. "images/tamer.jpg" -->
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=7a9a4f6a8b0d6cdb6f6d8c7958f6a3c2" alt="Tamer Mahmoud photo placeholder">
+        </div>
+        <div>
+          <h1>Tamer Mahmoud</h1>
+          <div class="role">IT & Network Specialist</div>
+          <div style="margin-top:6px;color:var(--muted);font-size:13px">20+ years experience · Cairo, Egypt</div>
+        </div>
+      </div>
+
+      <div class="contact" aria-label="Contact details">
+        <div style="margin-top:14px"><strong>Phone:</strong> <a href="tel:+201099711366">+20 109 97 11 366</a></div>
+        <div><strong>Email:</strong> <a href="mailto:eng.tamer20@gmail.com">eng.tamer20@gmail.com</a></div>
+        <div><strong>LinkedIn:</strong> <a href="http://linkedin.com/in/tamer-mahmoud-02926781" target="_blank" rel="noopener">linkedin.com/in/tamer-mahmoud-02926781</a></div>
+      </div>
+
+      <div class="chip" style="margin-top:18px">Senior Network Administrator</div>
+
+      <div style="margin-top:16px; font-weight:700; color:#bcd6ff">Core skills</div>
+      <div class="skills" aria-hidden="false">
+        <div class="skill">LAN/WAN</div>
+        <div class="skill">Fiber Optics</div>
+        <div class="skill">Server Mgmt</div>
+        <div class="skill">Network Security</div>
+        <div class="skill">CCTV & Wireless</div>
+        <div class="skill">Troubleshooting</div>
+      </div>
+
+      <!-- Download CV: replace href with local file path if hosting or use sandbox path -->
+      <!-- If you host your CV alongside this page, set href="Tamer_Mahmoud_CV.pdf" -->
+      <a class="download-cv" href="sandbox:/mnt/data/Tamer_Mahmoud_CV.pdf" download>Download CV (PDF)</a>
+
+      <div style="margin-top:16px; color:var(--muted); font-size:13px">
+        <strong>Languages</strong>
+        <div class="lang-list" style="margin-top:8px">
+          <div class="lang">Arabic — Native</div>
+          <div class="lang">English — Very Good</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT -->
+    <main class="main" aria-label="Main content">
+
+      <!-- About -->
+      <section class="panel about" id="about">
+        <h2>About</h2>
+        <p class="lead">
+          Motivated IT & Network Specialist with over 20 years of hands-on experience in network administration, IT infrastructure and fiber optics systems. Currently pursuing a Bachelor of Commerce (Ain Shams University, expected 2026). Proven ability to troubleshoot complex network issues, manage servers, and lead technical teams to deliver robust connectivity solutions.
+        </p>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div style="flex:1; min-width:220px">
+            <strong>Availability</strong>
+            <p style="margin:6px 0 0 0; color:var(--muted); font-size:13px">Open to new opportunities — Cairo, Egypt</p>
+          </div>
+          <div style="flex:1; min-width:200px">
+            <strong>Tools & Technologies</strong>
+            <p style="margin:6px 0 0 0; color:var(--muted); font-size:13px">Routers, Switches, Fiber Testing Tools, Windows Server, Network Monitoring</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="panel experience" id="experience" aria-labelledby="exp-heading">
+        <h2 id="exp-heading">Experience</h2>
+
+        <div class="timeline">
+          <div class="job" aria-label="Senior Network Administrator at Appcorp">
+            <div>
+              <div class="title">Senior Network Administrator</div>
+              <div class="company">Appcorp for Value Added Services — Cairo, Egypt</div>
+              <div class="duties">
+                <ul>
+                  <li>Install and configure software and hardware systems; manage network servers, accounts and workstations.</li>
+                  <li>Monitor performance, troubleshoot outages and security issues, and maintain systems to requirements.</li>
+                  <li>Train staff on new technologies and IT policies.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="date">2017 — Present</div>
+          </div>
+
+          <div class="job" aria-label="Senior Network & Fiber Optics Technician at Al Eman">
+            <div>
+              <div class="title">Senior Network & Fiber Optics Technician</div>
+              <div class="company">Al Eman for Network Services — Cairo, Egypt</div>
+              <div class="duties">
+                <ul>
+                  <li>Installed and maintained copper & fiber networks (LAN/WAN); implemented wireless networks and CCTV systems.</li>
+                  <li>Tested and repaired fiber optic infrastructure and trained junior technicians.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="date">2008 — 2017</div>
+          </div>
+
+          <div class="job" aria-label="Network Administrator at Future for Network Services">
+            <div>
+              <div class="title">Network Administrator</div>
+              <div class="company">Future for Network Services — Cairo, Egypt</div>
+              <div class="duties">
+                <ul>
+                  <li>Managed ADSL installation, local loop setup, routers and switches; provided technical support.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="date">2004 — 2008</div>
+          </div>
+
+          <div class="job" aria-label="Network Technician at Smart Link">
+            <div>
+              <div class="title">Network Technician</div>
+              <div class="company">Smart Link for Network Services — Cairo, Egypt</div>
+              <div class="duties">
+                <ul>
+                  <li>Installed ADSL and maintained local loop connections; provided technical support for networking issues.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="date">2000 — 2004</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education & Skills -->
+      <section class="panel education" id="education">
+        <h2>Education</h2>
+        <div class="grid-2">
+          <div>
+            <strong>Bachelor of Commerce (In Progress)</strong>
+            <div style="color:var(--muted); font-size:13px; margin-top:6px">Ain Shams University, Cairo — Expected 2026</div>
+          </div>
+          <div>
+            <strong>Vocational Diploma</strong>
+            <div style="color:var(--muted); font-size:13px; margin-top:6px">Textile Machinery Maintenance — 2004</div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px">
+          <strong>Technical Skills</strong>
+          <ul style="margin:8px 0 0 18px; color:#cfe6ff">
+            <li>Network Administration (LAN/WAN, ADSL)</li>
+            <li>Fiber Optics Installation & Maintenance</li>
+            <li>Server Configuration & Monitoring</li>
+            <li>Network Security & Troubleshooting</li>
+            <li>Hardware / Software Installation</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- Contact -->
+      <section class="panel contact-me" id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact</h2>
+        <p class="lead">Feel free to reach out — whether for job opportunities, freelance work, or technical consultations.</p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start">
+          <div>
+            <div style="font-weight:700">Phone</div>
+            <div style="color:var(--muted); margin-top:6px"><a href="tel:+201099711366" style="color:var(--accent-2); text-decoration:none">+20 109 97 11 366</a></div>
+          </div>
+          <div>
+            <div style="font-weight:700">Email</div>
+            <div style="color:var(--muted); margin-top:6px"><a href="mailto:eng.tamer20@gmail.com" style="color:var(--accent-2); text-decoration:none">eng.tamer20@gmail.com</a></div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <a class="btn" href="mailto:eng.tamer20@gmail.com?subject=Contact%20from%20Website">Send Email</a>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> Tamer Mahmoud — IT & Network Specialist · Built with ♥
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Notes for user/developer:
+    // - Replace the <img> src in .profile-photo with your actual photo file path.
+    //   e.g. <img src="images/tamer.jpg" alt="Tamer Mahmoud">
+    // - Replace the CV download link href with your hosted PDF or local file:
+    //   If the PDF is in the same folder as this index.html, change href to "Tamer_Mahmoud_CV.pdf"
+    //   Example: document.querySelector('.download-cv').href = 'Tamer_Mahmoud_CV.pdf'
+    //
+    // Small helper to switch CV link if the sandbox path is not valid in your environment:
+    (function(){
+      const dl = document.querySelector('.download-cv');
+      // If running locally, it's better to serve "Tamer_Mahmoud_CV.pdf" from same folder.
+      // Update this link if you host it elsewhere:
+      if(location.protocol === 'file:'){
+        // local open: try relative path
+        dl.setAttribute('href','Tamer_Mahmoud_CV.pdf');
+      } else {
+        // keep the existing href (which currently points to 'sandbox:/mnt/data/...' in template)
+      }
+    })();
+  </script>
+</body>
+</html>
